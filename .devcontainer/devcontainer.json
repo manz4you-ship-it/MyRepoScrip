@@ -1,6 +1,13 @@
 {
+  "name": "Ubuntu 24.04 + Docker",
   "image": "ubuntu:24.04",
+
+  "containerUser": "root",
+  "remoteUser": "root",
+
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  }
+  },
+
+  "postCreateCommand": "apt-get update && apt-get install -y unzip openssh-client git qemu-system-x86 qemu-utils genisoimage cloud-utils && apt-get clean && rm -rf /var/lib/apt/lists/*"
 }
